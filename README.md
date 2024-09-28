@@ -9,7 +9,7 @@ This code provides you with an option to try out all the blocks of the game Cubi
 
 - Don't enable the Offline Mode when the game is loading or in any loading screen because your game will CRASH or will be stuck FOREVER on the loading screens.
 
-- NOTE: Some DLL's that are used in this project might be taken as virus by some antiviruses since that DLL enables the option to inject code in the RAM memory to edit the code of the game.
+- NOTE: A DLL named "Memoryx86-64" that are used in this project might be taken as virus by some antiviruses since that DLL enables the option to inject code in the RAM memory to edit the code of the game, you have nothing to worry about.
 
 ###########################################################################################################
 
