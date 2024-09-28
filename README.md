@@ -9,7 +9,7 @@ This code provides you with an option to try out all the blocks of the game Cubi
 
 - Don't enable the Offline Mode when the game is loading or in any loading screen because your game will CRASH or will be stuck FOREVER on the loading screens.
 
-##################################################################################################################################
+#################################################################################################################
 
 No Responsibility Disclaimer:
 
@@ -29,7 +29,7 @@ all outcomes, and I, the developer, am not liable for any claims, losses, or dam
 
 Always ensure compliance with the terms of service and applicable rules of any platform, service, or game where you use this code.
 
-##################################################################################################################################
+#################################################################################################################
 
 All this code is running under the MIT License so please pay attention to it.
 
