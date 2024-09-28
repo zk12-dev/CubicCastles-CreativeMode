@@ -33,6 +33,6 @@ Always ensure compliance with the terms of service and applicable rules of any p
 
 #######################################################################################
 
-All this code is running under the MIT License so please pay attention to it.
+All this code is running under the MIT License.
 
 Copyrighted (c) 2024 by zk12 A.K.A Hispano
