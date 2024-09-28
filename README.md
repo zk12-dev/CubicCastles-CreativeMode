@@ -1,7 +1,7 @@
 # Singleplayer--CubicCastles
 This code provides you with an option to try out all the blocks of the game Cubic Castles without the need of owning them, please read the entire file README.md for more information.
 
-####### YOU MUST READ ALL THIS INFORMATION BEFORE COMPILING YOUR OWN VERSION OF THIS CODE #######
+## YOU MUST READ ALL THIS INFORMATION BEFORE COMPILING YOUR OWN VERSION OF THIS CODE ##
 
 - Notice that the "Blocks" folder and the "BlockData.txt" aren't generated automatically so if you're compiling your own version of this code you MUST copy those 2 elements to the bin folder where your compile is located for the code to run properly, you can locate those elements in the bin/Debug folder.
 
