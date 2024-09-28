@@ -3,7 +3,7 @@ This code provides you with an option to try out all the blocks of the game Cubi
 
 ############### YOU MUST READ ALL THIS INFORMATION BEFORE COMPILING YOUR OWN VERSION OF THIS CODE ###############
 
-- Notice that the "Blocks" folder and the "BlockData.txt" aren't generated automatically so if you're compiling your own version of this code you MUST copy those 2 elements to the bin folder where your compile is located for the code to run properly.
+- Notice that the "Blocks" folder and the "BlockData.txt" aren't generated automatically so if you're compiling your own version of this code you MUST copy those 2 elements to the bin folder where your compile is located for the code to run properly, you can locate those elements in the bin/Debug folder.
 
 - Before enabling the Offline Mode you must search a block on the Search Bar and click on the block in the ViewList, then click on any block that you have in your inventory in-game, if you don't do these steps before enabling the button, your game will CRASH.
 
