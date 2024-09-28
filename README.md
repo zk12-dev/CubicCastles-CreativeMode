@@ -11,7 +11,7 @@ This code provides you with an option to try out all the blocks of the game Cubi
 
 - NOTE: A DLL named "Memoryx86-64" that are used in this project might be taken as virus by some antiviruses since that DLL enables the option to inject code in the RAM memory to edit the code of the game, you have nothing to worry about.
 
-###########################################################################################################
+#######################################################################################
 
 No Responsibility Disclaimer:
 
@@ -31,7 +31,7 @@ all outcomes, and I, the developer, am not liable for any claims, losses, or dam
 
 Always ensure compliance with the terms of service and applicable rules of any platform, service, or game where you use this code.
 
-###########################################################################################################
+#######################################################################################
 
 All this code is running under the MIT License so please pay attention to it.
 
