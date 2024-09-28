@@ -13,7 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\alinb\OneDrive\Escritorio\New Cheat\Publica\</PublishUrl>
+    <PublishUrl>C:\Users</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -23,10 +23,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
-    <SupportUrl>https://zk12.es</SupportUrl>
-    <ProductName>Hispano%27s Mod Menu</ProductName>
+    <SupportUrl>None</SupportUrl>
+    <ProductName>None</ProductName>
     <PublisherName>Hispano</PublisherName>
-    <SuiteName>Hard To Stop</SuiteName>
+    <SuiteName>EasyToStop</SuiteName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <AutorunEnabled>true</AutorunEnabled>
     <ApplicationRevision>41</ApplicationRevision>
