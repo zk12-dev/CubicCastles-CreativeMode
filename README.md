@@ -1,6 +1,10 @@
 # Singleplayer--CubicCastles
 This code provides you with an option to try out all the blocks of the game Cubic Castles without the need of owning them, please read the entire file README.md for more information.
 
+This code has been writen by zk12 A.K.A Hispano with some help of TreacherousDev A.K.A Nevarwel.
+
+-----------------------------
+
 ## YOU MUST READ ALL THIS INFORMATION BEFORE COMPILING YOUR OWN VERSION OF THIS CODE ##
 
 - Notice that the "Blocks" folder and the "BlockData.txt" aren't generated automatically so if you're compiling your own version of this code you MUST copy those 2 elements to the bin folder where your compile is located for the code to run properly, you can locate those elements in the bin/Debug folder.
@@ -11,7 +15,8 @@ This code provides you with an option to try out all the blocks of the game Cubi
 
 - NOTE: A DLL named "Memoryx86-64" that are used in this project might be taken as virus by some antiviruses since that DLL enables the option to inject code in the RAM memory to edit the code of the game, you have nothing to worry about.
 
-#######################################################################################
+
+-----------------------------
 
 No Responsibility Disclaimer:
 
@@ -31,7 +36,8 @@ all outcomes, and I, the developer, am not liable for any claims, losses, or dam
 
 Always ensure compliance with the terms of service and applicable rules of any platform, service, or game where you use this code.
 
-#######################################################################################
+-----------------------------
+
 
 All this code is running under the MIT License.
 
