@@ -14,17 +14,14 @@ using System.Collections.Generic;
 namespace ETS
 {
 
-
     public partial class MainForm : MetroSetForm
     {
         public Mem m = new Mem();
 
-
-
         public MainForm()
         {
             InitializeComponent();
-
+            
             // This loads the BlockData.txt so the search bar can access it
             LoadTextFile();
 
@@ -36,8 +33,6 @@ namespace ETS
             listViewResults.Columns.Add("Results", -2, HorizontalAlignment.Left);
             listViewResults.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             listViewResults.Scrollable = true;
-            
-
         }
 
         // This stores all the blocks from the text file in a list
@@ -151,7 +146,6 @@ namespace ETS
             
         }
 
-
         private string GetID(string line)
         {
             var parts = line.Split(new[] { '.' }, 2);
@@ -163,8 +157,6 @@ namespace ETS
 
             return "100"; // If no ID found, return "DIRT ID"
         }
-
-
 
         private void listViewResults_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -184,7 +176,6 @@ namespace ETS
             }
         }
 
-        
         private string ExtractIDFromText(string itemText)
         {
             string[] parts = itemText.Split('|');  // Split by " | "
@@ -197,7 +188,6 @@ namespace ETS
             }
             return string.Empty;  // Return empty if no ID found
         }
-
 
         private byte[] ConvertIDToBytes(int blockID)
         {
@@ -220,10 +210,10 @@ namespace ETS
                     string blockIDHex = BitConverter.ToString(blockIDBytes).Replace("-", " ");
 
                     // Insert the edited bytes in to the main script
-                    string fullID = "66 C7 46 02 " + blockIDHex + " 0F BF 7E 02 0F BE D1 E9 35 24 F0 FF 90";
+                    string fullID = "66 C7 46 02 " + blockIDHex + " 0F BF 7E 02 0F BE D1 E9 1A 29 E9 FF 90";
 
                     // Write the needed bytes in the Code Cave
-                    m.WriteMemory("Cubic.exe+27C1ED", "bytes", fullID);
+                    m.WriteMemory("Cubic.exe+2ED4F7", "bytes", fullID);
                 }
                 else
                 {
@@ -231,7 +221,6 @@ namespace ETS
                 }
             }
         }
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -242,14 +231,20 @@ namespace ETS
                 backgroundWorker2.RunWorkerAsync();
         }
 
+        private bool AoBScanning;
+        private bool aobScanCompleted = false; // This is done to track if the AoB scan has already been performed
+        private long AoBChangeBlocks; // Class-level variable for the first scan
+        private long AoBChangeOffline; // Class-level varibale for the second scan
+
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            // This is used to attach the mod menu to the game, if the attachment is succesfully the labels will change from "Disconnected" to the pID and so on.
+            // This is used to attach the mod menu to the game and detect the process
             while (true)
             {
-
                 int pID = m.GetProcIdFromName("Cubic");
                 bool openProc = false;
+
+                // Check if the process exists
                 if (pID > 0)
                 {
                     openProc = m.OpenProcess(pID);
@@ -259,8 +254,7 @@ namespace ETS
                         procIDLabel.ForeColor = Color.Green;
                     });
                 }
-
-                else if (!(pID > 0))
+                else
                 {
                     procIDLabel.Invoke((MethodInvoker)delegate
                     {
@@ -269,55 +263,87 @@ namespace ETS
                     });
                 }
 
-                if (openProc == false)
+                if (!openProc)
                 {
                     getHackStatus.Invoke((MethodInvoker)delegate
                     {
                         getHackStatus.Text = "DISCONNECTED";
                         getHackStatus.ForeColor = Color.Red;
+                        AoBScanning = false;
+                        aobScanCompleted = false; // Reset the scan flag when disconnected
                     });
                 }
-
+                
                 else if (openProc)
                 {
                     getHackStatus.Invoke((MethodInvoker)delegate
                     {
                         getHackStatus.Text = "CONNECTED";
                         getHackStatus.ForeColor = Color.Green;
+                        AoBScanning = true;
                     });
-                };
 
-                // This is used to slow a bit the process of searching the name of "Cubic" through all the other processes so it consumes less CPU %
+                    // Only perform the AoB scan if it hasn't been done already
+                    if (!aobScanCompleted && AoBScanning)
+                    {
+                        aobScanCompleted = true; // Mark the AoB scan as completed
+                        Task.Run(() => AoBOffline()); // Run the AoB scan in an async task
+                    }
+                }
                 System.Threading.Thread.Sleep(200);
             }
+        }
 
+        // AoB scanning function, this is done so i don't need to update the addresses manually everytime an update arrives.
+        public async Task AoBOffline()
+        {
+            await Task.Delay(1000); // A little delay added :-)
+
+            // Define the start and end addresses for x86 applications
+            long startAddress = 0x00000000; 
+            long endAddress = 0x7FFFFFFF;   
+
+            // This array leads to the address that changes the blocks
+            string pattern = "0F BF 7E 02 0F";
+
+            // Perform the first AoB scan
+            IEnumerable<long> AoBChangeBlockResult = await m.AoBScan(startAddress, endAddress, pattern, false, true);
+
+            AoBChangeBlocks = AoBChangeBlockResult.FirstOrDefault();
+
+            // This array leads to the address that handles the offline-mode
+            string pattern2 = "8B 16 89 17 83";
+
+            //Perform the second AoB scan
+            IEnumerable<long> AoBChangeOfflineResult = await m.AoBScan(startAddress, endAddress, pattern2, false, true);
+
+            AoBChangeOffline = AoBChangeOfflineResult.FirstOrDefault();
 
         }
 
         private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
         {
-            // This is used to enable the Offline-Mode, also this creates the Code Cave so the Search Bar only needs to write the code in the Code Cave created here.
+            // This is used to enable the Offline-Mode, also this creates the Code Cave
             while (true)
             {
-                
                 if (enableOfflineMode.Switched)
                 {
                     // Offline-Mode Enabler
-                    m.WriteMemory("Cubic.exe+244247", "bytes", "90 90");
-                    // Jump to the Code Cave
-                    m.WriteMemory("Cubic.exe+17E62D", "bytes", "E9 BB DB 0F 00");
+                    m.WriteMemory(AoBChangeBlocks.ToString("x"), "bytes", "E9 D6 D6 16 00");
+                    m.WriteMemory(AoBChangeOffline.ToString("x"), "bytes", "90 90");
                 }
                 else if (!enableOfflineMode.Switched)
                 {
                     // Offline-Mode Disabler
-                    m.WriteMemory("Cubic.exe+244247", "bytes", "8B 16");
-                    // Return from the Code Cave
-                    m.WriteMemory("Cubic.exe+17E62D", "bytes", "0F BF 7E 02 0F");
-                }
+                    m.WriteMemory(AoBChangeBlocks.ToString("x"), "bytes", "0F BF 7E 02 0F");
+                    m.WriteMemory(AoBChangeOffline.ToString("x"), "bytes", "8B 16");
 
+
+                    //Information for the future, time freeze - 8B 16 89 17 83 C7 04 83 C6 04 83 E9 01, blocks - 0F BF 7E 02 0F BE D1 89 55 E0 33 D2 42 88 45 F2 3A CA
+
+                }
             }
         }
-
     }
 }
 

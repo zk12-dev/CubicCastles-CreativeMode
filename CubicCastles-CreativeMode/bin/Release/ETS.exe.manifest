@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ETS.exe" size="442296">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ETS.exe" size="444344">
       <assemblyIdentity name="ETS" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>nioBC+yTpbkMBkuZdxpcTcHFQZwMAqcdMS+CI9yH4CY=</dsig:DigestValue>
+        <dsig:DigestValue>uNWvyLwxV4OIfIoDqokMhBF9Yr0+r9UuRWJvXU+uJw4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
