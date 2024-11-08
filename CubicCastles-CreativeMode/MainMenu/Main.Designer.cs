@@ -32,26 +32,23 @@ namespace ETS
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.metroSetControlBox1 = new MetroSet_UI.Controls.MetroSetControlBox();
-            this.metroSetTabControl1 = new MetroSet_UI.Controls.MetroSetTabControl();
-            this.MainHacks = new MetroSet_UI.Child.MetroSetSetTabPage();
-            this.label4 = new System.Windows.Forms.Label();
+            this.EasyToStopWorker = new System.ComponentModel.BackgroundWorker();
+            this.imageListIcons = new System.Windows.Forms.ImageList(this.components);
+            this.TabControl = new Sunny.UI.UITabControl();
+            this.Utility = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.enableOfflineMode = new MetroSet_UI.Controls.MetroSetSwitch();
-            this.listViewResults = new System.Windows.Forms.ListView();
             this.searchButton = new System.Windows.Forms.Button();
             this.BlockSearchBar = new MetroSet_UI.Controls.MetroSetTextBox();
-            this.Information = new MetroSet_UI.Child.MetroSetSetTabPage();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.getHackStatus = new System.Windows.Forms.Label();
-            this.hackstatus = new System.Windows.Forms.Label();
-            this.ProcessID = new System.Windows.Forms.Label();
-            this.procIDLabel = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-            this.imageListIcons = new System.Windows.Forms.ImageList(this.components);
-            this.metroSetTabControl1.SuspendLayout();
-            this.MainHacks.SuspendLayout();
+            this.Information = new System.Windows.Forms.TabPage();
+            this.procIDDisplay = new MetroSet_UI.Controls.MetroSetLabel();
+            this.status_label = new MetroSet_UI.Controls.MetroSetLabel();
+            this.getStatusDisplay = new MetroSet_UI.Controls.MetroSetLabel();
+            this.process_label = new MetroSet_UI.Controls.MetroSetLabel();
+            this.listViewResults = new System.Windows.Forms.ListView();
+            this.Hispano = new MetroSet_UI.Controls.MetroSetLabel();
+            this.TabControl.SuspendLayout();
+            this.Utility.SuspendLayout();
             this.Information.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +60,7 @@ namespace ETS
             this.metroSetControlBox1.CloseNormalForeColor = System.Drawing.Color.Gray;
             this.metroSetControlBox1.DisabledForeColor = System.Drawing.Color.Silver;
             this.metroSetControlBox1.IsDerivedStyle = true;
-            this.metroSetControlBox1.Location = new System.Drawing.Point(472, 11);
+            this.metroSetControlBox1.Location = new System.Drawing.Point(403, 11);
             this.metroSetControlBox1.MaximizeBox = false;
             this.metroSetControlBox1.MaximizeHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.metroSetControlBox1.MaximizeHoverForeColor = System.Drawing.Color.Gray;
@@ -81,80 +78,67 @@ namespace ETS
             this.metroSetControlBox1.ThemeAuthor = "Narwin";
             this.metroSetControlBox1.ThemeName = "MetroDark";
             // 
-            // metroSetTabControl1
+            // EasyToStopWorker
             // 
-            this.metroSetTabControl1.AnimateEasingType = MetroSet_UI.Enums.EasingType.SineInOut;
-            this.metroSetTabControl1.AnimateTime = 200;
-            this.metroSetTabControl1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.metroSetTabControl1.Controls.Add(this.MainHacks);
-            this.metroSetTabControl1.Controls.Add(this.Information);
-            this.metroSetTabControl1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.metroSetTabControl1.IsDerivedStyle = true;
-            this.metroSetTabControl1.ItemSize = new System.Drawing.Size(100, 38);
-            this.metroSetTabControl1.Location = new System.Drawing.Point(15, 76);
-            this.metroSetTabControl1.MaximumSize = new System.Drawing.Size(557, 302);
-            this.metroSetTabControl1.MinimumSize = new System.Drawing.Size(557, 302);
-            this.metroSetTabControl1.Name = "metroSetTabControl1";
-            this.metroSetTabControl1.SelectedIndex = 1;
-            this.metroSetTabControl1.SelectedTextColor = System.Drawing.Color.Lime;
-            this.metroSetTabControl1.Size = new System.Drawing.Size(557, 302);
-            this.metroSetTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.metroSetTabControl1.Speed = 50;
-            this.metroSetTabControl1.Style = MetroSet_UI.Enums.Style.Custom;
-            this.metroSetTabControl1.StyleManager = null;
-            this.metroSetTabControl1.TabIndex = 3;
-            this.metroSetTabControl1.TabStyle = MetroSet_UI.Enums.TabStyle.Style2;
-            this.metroSetTabControl1.ThemeAuthor = "Hispano";
-            this.metroSetTabControl1.ThemeName = "Hispano";
-            this.metroSetTabControl1.UnselectedTextColor = System.Drawing.Color.Lime;
-            this.metroSetTabControl1.UseAnimation = false;
+            this.EasyToStopWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.EasyToStopWorker_DoWork);
             // 
-            // MainHacks
+            // imageListIcons
             // 
-            this.MainHacks.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.MainHacks.Controls.Add(this.label4);
-            this.MainHacks.Controls.Add(this.label3);
-            this.MainHacks.Controls.Add(this.enableOfflineMode);
-            this.MainHacks.Controls.Add(this.listViewResults);
-            this.MainHacks.Controls.Add(this.searchButton);
-            this.MainHacks.Controls.Add(this.BlockSearchBar);
-            this.MainHacks.Font = new System.Drawing.Font("Impact", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MainHacks.ImageIndex = 0;
-            this.MainHacks.ImageKey = null;
-            this.MainHacks.IsDerivedStyle = true;
-            this.MainHacks.Location = new System.Drawing.Point(4, 42);
-            this.MainHacks.Name = "MainHacks";
-            this.MainHacks.Size = new System.Drawing.Size(549, 256);
-            this.MainHacks.Style = MetroSet_UI.Enums.Style.Custom;
-            this.MainHacks.StyleManager = null;
-            this.MainHacks.TabIndex = 0;
-            this.MainHacks.Text = "Utility";
-            this.MainHacks.ThemeAuthor = "Narwin";
-            this.MainHacks.ThemeName = "MetroLite";
-            this.MainHacks.ToolTipText = null;
+            this.imageListIcons.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.imageListIcons.ImageSize = new System.Drawing.Size(32, 32);
+            this.imageListIcons.TransparentColor = System.Drawing.Color.Empty;
             // 
-            // label4
+            // TabControl
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(145, 241);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(245, 15);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Mod Menu scripted and compiled by Hispano";
+            this.TabControl.Controls.Add(this.Utility);
+            this.TabControl.Controls.Add(this.Information);
+            this.TabControl.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.TabControl.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.TabControl.Font = new System.Drawing.Font("Impact", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TabControl.ItemSize = new System.Drawing.Size(120, 30);
+            this.TabControl.Location = new System.Drawing.Point(15, 93);
+            this.TabControl.MainPage = "";
+            this.TabControl.MenuStyle = Sunny.UI.UIMenuStyle.Custom;
+            this.TabControl.Name = "TabControl";
+            this.TabControl.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.TabControl.SelectedIndex = 0;
+            this.TabControl.Size = new System.Drawing.Size(488, 285);
+            this.TabControl.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.TabControl.TabBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.TabControl.TabIndex = 14;
+            this.TabControl.TabSelectedColor = System.Drawing.Color.Lime;
+            this.TabControl.TabSelectedForeColor = System.Drawing.Color.White;
+            this.TabControl.TabSelectedHighColor = System.Drawing.Color.LimeGreen;
+            this.TabControl.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            // 
+            // Utility
+            // 
+            this.Utility.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.Utility.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Utility.Controls.Add(this.label3);
+            this.Utility.Controls.Add(this.enableOfflineMode);
+            this.Utility.Controls.Add(this.listViewResults);
+            this.Utility.Controls.Add(this.searchButton);
+            this.Utility.Controls.Add(this.BlockSearchBar);
+            this.Utility.Location = new System.Drawing.Point(0, 30);
+            this.Utility.Name = "Utility";
+            this.Utility.Size = new System.Drawing.Size(488, 255);
+            this.Utility.TabIndex = 0;
+            this.Utility.Text = "Utility";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Lime;
-            this.label3.Location = new System.Drawing.Point(413, 6);
+            this.label3.Location = new System.Drawing.Point(393, 19);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 15);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Enable Offline-Mode";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label3.Size = new System.Drawing.Size(79, 17);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Offline-Mode";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // enableOfflineMode
             // 
@@ -168,47 +152,29 @@ namespace ETS
             this.enableOfflineMode.DisabledCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.enableOfflineMode.DisabledUnCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
             this.enableOfflineMode.IsDerivedStyle = true;
-            this.enableOfflineMode.Location = new System.Drawing.Point(349, 3);
+            this.enableOfflineMode.Location = new System.Drawing.Point(329, 16);
             this.enableOfflineMode.Name = "enableOfflineMode";
             this.enableOfflineMode.Size = new System.Drawing.Size(58, 22);
             this.enableOfflineMode.Style = MetroSet_UI.Enums.Style.Custom;
             this.enableOfflineMode.StyleManager = null;
             this.enableOfflineMode.Switched = false;
             this.enableOfflineMode.SymbolColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(92)))), ((int)(((byte)(92)))));
-            this.enableOfflineMode.TabIndex = 3;
+            this.enableOfflineMode.TabIndex = 22;
             this.enableOfflineMode.ThemeAuthor = "Narwin";
             this.enableOfflineMode.ThemeName = "MetroLite";
             this.enableOfflineMode.UnCheckColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(155)))), ((int)(((byte)(155)))));
-            // 
-            // listViewResults
-            // 
-            this.listViewResults.Alignment = System.Windows.Forms.ListViewAlignment.Default;
-            this.listViewResults.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.listViewResults.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.listViewResults.ForeColor = System.Drawing.SystemColors.Window;
-            this.listViewResults.FullRowSelect = true;
-            this.listViewResults.GridLines = true;
-            this.listViewResults.HideSelection = false;
-            this.listViewResults.Location = new System.Drawing.Point(12, 33);
-            this.listViewResults.MultiSelect = false;
-            this.listViewResults.Name = "listViewResults";
-            this.listViewResults.Size = new System.Drawing.Size(523, 207);
-            this.listViewResults.TabIndex = 2;
-            this.listViewResults.TileSize = new System.Drawing.Size(1, 1);
-            this.listViewResults.UseCompatibleStateImageBehavior = false;
-            this.listViewResults.View = System.Windows.Forms.View.List;
-            this.listViewResults.SelectedIndexChanged += new System.EventHandler(this.listViewResults_SelectedIndexChanged);
             // 
             // searchButton
             // 
             this.searchButton.BackColor = System.Drawing.Color.Lime;
             this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.searchButton.ForeColor = System.Drawing.Color.Lime;
-            this.searchButton.Location = new System.Drawing.Point(248, 0);
+            this.searchButton.Font = new System.Drawing.Font("Impact", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchButton.ForeColor = System.Drawing.Color.White;
+            this.searchButton.Location = new System.Drawing.Point(198, 14);
             this.searchButton.Margin = new System.Windows.Forms.Padding(0);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(88, 27);
-            this.searchButton.TabIndex = 1;
+            this.searchButton.TabIndex = 20;
             this.searchButton.Text = "Search";
             this.searchButton.UseMnemonic = false;
             this.searchButton.UseVisualStyleBackColor = false;
@@ -229,15 +195,15 @@ namespace ETS
             this.BlockSearchBar.Image = null;
             this.BlockSearchBar.IsDerivedStyle = true;
             this.BlockSearchBar.Lines = null;
-            this.BlockSearchBar.Location = new System.Drawing.Point(12, 0);
+            this.BlockSearchBar.Location = new System.Drawing.Point(15, 14);
             this.BlockSearchBar.MaxLength = 32767;
             this.BlockSearchBar.Multiline = false;
             this.BlockSearchBar.Name = "BlockSearchBar";
             this.BlockSearchBar.ReadOnly = false;
-            this.BlockSearchBar.Size = new System.Drawing.Size(233, 27);
+            this.BlockSearchBar.Size = new System.Drawing.Size(180, 27);
             this.BlockSearchBar.Style = MetroSet_UI.Enums.Style.Custom;
             this.BlockSearchBar.StyleManager = null;
-            this.BlockSearchBar.TabIndex = 0;
+            this.BlockSearchBar.TabIndex = 19;
             this.BlockSearchBar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BlockSearchBar.ThemeAuthor = "A";
             this.BlockSearchBar.ThemeName = "A";
@@ -246,108 +212,117 @@ namespace ETS
             // 
             // Information
             // 
-            this.Information.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.Information.Controls.Add(this.label2);
-            this.Information.Controls.Add(this.label1);
-            this.Information.Controls.Add(this.getHackStatus);
-            this.Information.Controls.Add(this.hackstatus);
-            this.Information.Controls.Add(this.ProcessID);
-            this.Information.Controls.Add(this.procIDLabel);
-            this.Information.Font = new System.Drawing.Font("Impact", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Information.ImageIndex = 0;
-            this.Information.ImageKey = null;
-            this.Information.IsDerivedStyle = true;
-            this.Information.Location = new System.Drawing.Point(4, 42);
+            this.Information.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.Information.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Information.Controls.Add(this.Hispano);
+            this.Information.Controls.Add(this.procIDDisplay);
+            this.Information.Controls.Add(this.status_label);
+            this.Information.Controls.Add(this.getStatusDisplay);
+            this.Information.Controls.Add(this.process_label);
+            this.Information.Location = new System.Drawing.Point(0, 30);
             this.Information.Name = "Information";
-            this.Information.Size = new System.Drawing.Size(549, 256);
-            this.Information.Style = MetroSet_UI.Enums.Style.Custom;
-            this.Information.StyleManager = null;
-            this.Information.TabIndex = 2;
+            this.Information.Size = new System.Drawing.Size(488, 255);
+            this.Information.TabIndex = 1;
             this.Information.Text = "Information";
-            this.Information.ThemeAuthor = "Narwin";
-            this.Information.ThemeName = "MetroLite";
-            this.Information.ToolTipText = null;
             // 
-            // label2
+            // procIDDisplay
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(57, 201);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 15);
-            this.label2.TabIndex = 8;
+            this.procIDDisplay.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.procIDDisplay.Font = new System.Drawing.Font("Impact", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.procIDDisplay.IsDerivedStyle = true;
+            this.procIDDisplay.Location = new System.Drawing.Point(105, 15);
+            this.procIDDisplay.Name = "procIDDisplay";
+            this.procIDDisplay.Size = new System.Drawing.Size(125, 23);
+            this.procIDDisplay.Style = MetroSet_UI.Enums.Style.Custom;
+            this.procIDDisplay.StyleManager = null;
+            this.procIDDisplay.TabIndex = 3;
+            this.procIDDisplay.Text = "DISCONNECTED";
+            this.procIDDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.procIDDisplay.ThemeAuthor = "Hispano";
+            this.procIDDisplay.ThemeName = "ETS-Lime";
             // 
-            // label1
+            // status_label
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(145, 241);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(245, 15);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Mod Menu scripted and compiled by Hispano";
+            this.status_label.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.status_label.Font = new System.Drawing.Font("Impact", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.status_label.IsDerivedStyle = true;
+            this.status_label.Location = new System.Drawing.Point(15, 38);
+            this.status_label.Name = "status_label";
+            this.status_label.Size = new System.Drawing.Size(84, 23);
+            this.status_label.Style = MetroSet_UI.Enums.Style.Custom;
+            this.status_label.StyleManager = null;
+            this.status_label.TabIndex = 2;
+            this.status_label.Text = "STATUS:";
+            this.status_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.status_label.ThemeAuthor = "Hispano";
+            this.status_label.ThemeName = "ETS-Lime";
             // 
-            // getHackStatus
+            // getStatusDisplay
             // 
-            this.getHackStatus.AutoSize = true;
-            this.getHackStatus.BackColor = System.Drawing.Color.Transparent;
-            this.getHackStatus.Font = new System.Drawing.Font("Impact", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.getHackStatus.ForeColor = System.Drawing.Color.Red;
-            this.getHackStatus.Location = new System.Drawing.Point(84, 40);
-            this.getHackStatus.Name = "getHackStatus";
-            this.getHackStatus.Size = new System.Drawing.Size(93, 18);
-            this.getHackStatus.TabIndex = 5;
-            this.getHackStatus.Text = "DISCONNECTED";
+            this.getStatusDisplay.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.getStatusDisplay.Font = new System.Drawing.Font("Impact", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.getStatusDisplay.IsDerivedStyle = true;
+            this.getStatusDisplay.Location = new System.Drawing.Point(105, 38);
+            this.getStatusDisplay.Name = "getStatusDisplay";
+            this.getStatusDisplay.Size = new System.Drawing.Size(125, 23);
+            this.getStatusDisplay.Style = MetroSet_UI.Enums.Style.Custom;
+            this.getStatusDisplay.StyleManager = null;
+            this.getStatusDisplay.TabIndex = 1;
+            this.getStatusDisplay.Text = "DISCONNECTED";
+            this.getStatusDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.getStatusDisplay.ThemeAuthor = "Hispano";
+            this.getStatusDisplay.ThemeName = "ETS-Lime";
             // 
-            // hackstatus
+            // process_label
             // 
-            this.hackstatus.AutoSize = true;
-            this.hackstatus.BackColor = System.Drawing.Color.Transparent;
-            this.hackstatus.Font = new System.Drawing.Font("Impact", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hackstatus.Location = new System.Drawing.Point(7, 40);
-            this.hackstatus.Name = "hackstatus";
-            this.hackstatus.Size = new System.Drawing.Size(50, 18);
-            this.hackstatus.TabIndex = 4;
-            this.hackstatus.Text = "STATUS:";
+            this.process_label.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.process_label.Font = new System.Drawing.Font("Impact", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.process_label.IsDerivedStyle = true;
+            this.process_label.Location = new System.Drawing.Point(15, 15);
+            this.process_label.Name = "process_label";
+            this.process_label.Size = new System.Drawing.Size(84, 23);
+            this.process_label.Style = MetroSet_UI.Enums.Style.Custom;
+            this.process_label.StyleManager = null;
+            this.process_label.TabIndex = 0;
+            this.process_label.Text = "PROCESS:";
+            this.process_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.process_label.ThemeAuthor = "Hispano";
+            this.process_label.ThemeName = "ETS-Lime";
             // 
-            // ProcessID
+            // listViewResults
             // 
-            this.ProcessID.AutoSize = true;
-            this.ProcessID.BackColor = System.Drawing.Color.Transparent;
-            this.ProcessID.Font = new System.Drawing.Font("Impact", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProcessID.Location = new System.Drawing.Point(7, 18);
-            this.ProcessID.Name = "ProcessID";
-            this.ProcessID.Size = new System.Drawing.Size(76, 18);
-            this.ProcessID.TabIndex = 3;
-            this.ProcessID.Text = "PROCESS ID:";
+            this.listViewResults.Alignment = System.Windows.Forms.ListViewAlignment.Default;
+            this.listViewResults.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.listViewResults.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listViewResults.ForeColor = System.Drawing.SystemColors.Window;
+            this.listViewResults.FullRowSelect = true;
+            this.listViewResults.GridLines = true;
+            this.listViewResults.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listViewResults.HideSelection = false;
+            this.listViewResults.Location = new System.Drawing.Point(15, 47);
+            this.listViewResults.MultiSelect = false;
+            this.listViewResults.Name = "listViewResults";
+            this.listViewResults.Scrollable = false;
+            this.listViewResults.Size = new System.Drawing.Size(459, 190);
+            this.listViewResults.TabIndex = 21;
+            this.listViewResults.TileSize = new System.Drawing.Size(1, 1);
+            this.listViewResults.UseCompatibleStateImageBehavior = false;
+            this.listViewResults.View = System.Windows.Forms.View.List;
+            this.listViewResults.SelectedIndexChanged += new System.EventHandler(this.listViewResults_SelectedIndexChanged);
             // 
-            // procIDLabel
+            // Hispano
             // 
-            this.procIDLabel.AutoSize = true;
-            this.procIDLabel.BackColor = System.Drawing.Color.Transparent;
-            this.procIDLabel.Font = new System.Drawing.Font("Impact", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.procIDLabel.ForeColor = System.Drawing.Color.Red;
-            this.procIDLabel.Location = new System.Drawing.Point(84, 19);
-            this.procIDLabel.Name = "procIDLabel";
-            this.procIDLabel.Size = new System.Drawing.Size(93, 18);
-            this.procIDLabel.TabIndex = 2;
-            this.procIDLabel.Text = "DISCONNECTED";
-            // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            // 
-            // backgroundWorker2
-            // 
-            this.backgroundWorker2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker2_DoWork);
-            // 
-            // imageListIcons
-            // 
-            this.imageListIcons.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.imageListIcons.ImageSize = new System.Drawing.Size(32, 32);
-            this.imageListIcons.TransparentColor = System.Drawing.Color.Empty;
+            this.Hispano.Font = new System.Drawing.Font("Impact", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Hispano.IsDerivedStyle = true;
+            this.Hispano.Location = new System.Drawing.Point(95, 230);
+            this.Hispano.Name = "Hispano";
+            this.Hispano.Size = new System.Drawing.Size(293, 23);
+            this.Hispano.Style = MetroSet_UI.Enums.Style.Light;
+            this.Hispano.StyleManager = null;
+            this.Hispano.TabIndex = 4;
+            this.Hispano.Text = "Helium has been scripted and compiled by Hispano";
+            this.Hispano.ThemeAuthor = "Narwin";
+            this.Hispano.ThemeName = "MetroLite";
             // 
             // MainForm
             // 
@@ -357,9 +332,9 @@ namespace ETS
             this.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.BackgroundImageTransparency = 0.1F;
             this.BorderColor = System.Drawing.Color.Lime;
-            this.ClientSize = new System.Drawing.Size(587, 393);
+            this.ClientSize = new System.Drawing.Size(518, 393);
+            this.Controls.Add(this.TabControl);
             this.Controls.Add(this.metroSetControlBox1);
-            this.Controls.Add(this.metroSetTabControl1);
             this.Font = new System.Drawing.Font("Impact", 13.2F);
             this.HeaderColor = System.Drawing.Color.Lime;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -378,35 +353,31 @@ namespace ETS
             this.ThemeName = "Lime";
             this.UseSlideAnimation = true;
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.metroSetTabControl1.ResumeLayout(false);
-            this.MainHacks.ResumeLayout(false);
-            this.MainHacks.PerformLayout();
+            this.TabControl.ResumeLayout(false);
+            this.Utility.ResumeLayout(false);
+            this.Utility.PerformLayout();
             this.Information.ResumeLayout(false);
-            this.Information.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private MetroSet_UI.Controls.MetroSetControlBox metroSetControlBox1;
-        private MetroSet_UI.Controls.MetroSetTabControl metroSetTabControl1;
-        private MetroSet_UI.Child.MetroSetSetTabPage MainHacks;
-        private MetroSet_UI.Child.MetroSetSetTabPage Information;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Label procIDLabel;
-        private System.Windows.Forms.Label getHackStatus;
-        private System.Windows.Forms.Label hackstatus;
-        private System.Windows.Forms.Label ProcessID;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.ComponentModel.BackgroundWorker backgroundWorker2;
-        private MetroSet_UI.Controls.MetroSetTextBox BlockSearchBar;
-        private System.Windows.Forms.Button searchButton;
-        private System.Windows.Forms.ListView listViewResults;
+        private System.ComponentModel.BackgroundWorker EasyToStopWorker;
         private System.Windows.Forms.ImageList imageListIcons;
+        private Sunny.UI.UITabControl TabControl;
+        private System.Windows.Forms.TabPage Utility;
         private System.Windows.Forms.Label label3;
         private MetroSet_UI.Controls.MetroSetSwitch enableOfflineMode;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button searchButton;
+        private MetroSet_UI.Controls.MetroSetTextBox BlockSearchBar;
+        private System.Windows.Forms.TabPage Information;
+        private MetroSet_UI.Controls.MetroSetLabel procIDDisplay;
+        private MetroSet_UI.Controls.MetroSetLabel status_label;
+        private MetroSet_UI.Controls.MetroSetLabel getStatusDisplay;
+        private MetroSet_UI.Controls.MetroSetLabel process_label;
+        private System.Windows.Forms.ListView listViewResults;
+        private MetroSet_UI.Controls.MetroSetLabel Hispano;
     }
 }
 

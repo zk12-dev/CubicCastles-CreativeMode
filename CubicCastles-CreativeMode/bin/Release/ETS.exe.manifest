@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ETS.exe" size="444344">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ETS.exe" size="443320">
       <assemblyIdentity name="ETS" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>uNWvyLwxV4OIfIoDqokMhBF9Yr0+r9UuRWJvXU+uJw4=</dsig:DigestValue>
+        <dsig:DigestValue>J3kiDcNFf0njzHXSy5SoxPg9TZsKcEwQeXyVHxdrgKk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -75,6 +75,42 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
         <dsig:DigestValue>YojlWbDzTVarRgH/sroiiQAcd89zUdE13ZORUDTFa7o=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ObjectListView.dll" size="407040">
+      <assemblyIdentity name="ObjectListView" version="2.5.1.30870" publicKeyToken="B1C5BF581481BCD4" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>drISBYjAsVgtF4Sn0nGe1mL8NGLM4AXTowz5hz5OAf8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SunnyUI.dll" size="3385856">
+      <assemblyIdentity name="SunnyUI" version="3.7.2.0" publicKeyToken="27D7D2E821D97AEB" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>O2VNk5okKatiDvWpgLRXo3eHobhi3LxY23gSttdewXE=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SunnyUI.Common.dll" size="208896">
+      <assemblyIdentity name="SunnyUI.Common" version="3.7.2.0" publicKeyToken="5A271FB7BA597231" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>rkzEf8FkyYBVr9hkJFanwNmov4cCXxP7gmoBPemtFNk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
