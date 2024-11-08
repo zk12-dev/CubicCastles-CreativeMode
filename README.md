@@ -1,4 +1,4 @@
-# CubicCastles-CreativeMode
+# EasyToStop
 This code provides you with an option to try out all the blocks of the game Cubic Castles without the need of owning them, please read the entire file README.md for more information.
 
 This code has been writen by zk12 A.K.A Hispano with some help of TreacherousDev A.K.A Nevarwel.
